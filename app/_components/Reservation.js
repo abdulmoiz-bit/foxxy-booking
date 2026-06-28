@@ -1,0 +1,43 @@
+import { auth } from "@/app/_services/auth";
+import {
+  getBookedDatesByCabinId,
+  getSettings,
+} from "../_services/data-service";
+import DateSelector from "./DateSelector";
+//import LoginMessage from "./LoginMessage";
+import ReservationForm from "./ReservationForm";
+import Link from "next/link";
+
+async function Reservation({ cabin }) {
+  const [settings, bookedDates] = await Promise.all([
+    getSettings(),
+    getBookedDatesByCabinId(cabin.id),
+  ]);
+  const session = await auth();
+
+  return (
+    <div className="grid grid-cols-2 border border-primary-800 min-h-[400px]">
+      <DateSelector
+        settings={settings}
+        bookedDates={bookedDates}
+        cabin={cabin}
+      />
+      {session?.user ? (
+        <ReservationForm cabin={cabin} user={session.user} />
+      ) : (
+        <div className="grid bg-primary-800 ">
+          <p className="text-center text-xl py-12 self-center">
+            Please{" "}
+            <Link href="/login" className="underline text-accent-500">
+              login
+            </Link>{" "}
+            to reserve this
+            <br /> cabin right now
+          </p>
+        </div>
+      )}
+    </div>
+  );
+}
+
+export default Reservation;
