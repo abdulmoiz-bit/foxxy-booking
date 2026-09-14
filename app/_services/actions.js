@@ -1,12 +1,13 @@
 "use server";
-
-import { auth, signIn, signOut } from "@/app/api/auth/[...nextauth]/route";
-//import { auth, signIn, signOut } from "@/app/_services/auth";
-import { getBookings } from "./data-service";
 import { supabase } from "./supabase";
+import { getBookings } from "./data-service";
+
+import { auth, signIn, signOut } from "./auth";
 import { revalidatePath } from "next/cache";
 import { redirect } from "next/navigation";
 
+
+// UPDATE GUEST
 export async function updateGuest(formData) {
   const session = await auth();
   if (!session) throw new Error("You must be logged in");
@@ -29,6 +30,8 @@ export async function updateGuest(formData) {
   revalidatePath("/account/profile");
 }
 
+
+// CREATE BOOKING
 export async function createBooking(bookingData, formData) {
   const session = await auth();
   if (!session) throw new Error("You must be logged in");
@@ -54,6 +57,8 @@ export async function createBooking(bookingData, formData) {
   redirect("/cabins/thankyou");
 }
 
+
+// DELETE BOOKING
 export async function deleteBooking(bookingId) {
   const session = await auth();
   if (!session) throw new Error("You must be logged in");
@@ -74,6 +79,8 @@ export async function deleteBooking(bookingId) {
   revalidatePath("/account/reservations");
 }
 
+
+// UPDATE BOOKING
 export async function updateBooking(formData) {
   const bookingId = Number(formData.get("bookingId"));
 

@@ -1,10 +1,6 @@
 import { notFound } from "next/navigation";
 import { eachDayOfInterval } from "date-fns";
 import { supabase } from "./supabase";
-import { auth, signIn, signOut } from "./actions";
-//import { getBookings } from "./data-service";
-import { revalidatePath } from "next/cache";
-import { redirect } from "next/navigation";
 
 
 // ABOUT CABINS

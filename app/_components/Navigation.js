@@ -1,9 +1,8 @@
 import Link from "next/link";
-//import { auth } from "@/app/_services/auth";
-//import { auth } from "@/app/api/auth/[...nextauth]/route";
+import { auth } from "../_services/auth";
 
 export default async function Navigation() {
-  //const session = await auth();
+  const session = await auth();
 
   return (
     <nav className="z-10 text-xl">
@@ -25,7 +24,6 @@ export default async function Navigation() {
           </Link>
         </li>
         <li>
-          {/*
           {session?.user?.image ? (
             <Link
               href="/account"
@@ -37,17 +35,16 @@ export default async function Navigation() {
                 alt={session.user.name}
                 referrerPolicy="no-referrer"
               />
-              <span>Profile</span>
+              <span>Guest area</span>
             </Link>
           ) : (
-           */}
             <Link
               href="/account"
               className="hover:text-accent-400 transition-colors"
             >
               Guest area
             </Link>
-          {/*})}*/}
+          )}
         </li>
       </ul>
     </nav>
