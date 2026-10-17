@@ -26,7 +26,7 @@ export default async function Page({ params }) {
 
   return (
     <div className="max-w-6xl mx-auto mt-8">
-      <div className="grid grid-cols-[3fr_4fr] gap-20 border border-primary-800 py-3 px-10 mb-24">
+      <div className="grid grid-cols-[3fr_4fr] gap-20 border border-primary-300 py-3 px-10 mb-24">
            <div className="relative scale-[1.15] -translate-x-3">
              <Image
                src={cabin.image}
@@ -37,11 +37,11 @@ export default async function Page({ params }) {
            </div>
      
            <div>
-             <h3 className="text-accent-100 font-black text-7xl mb-5 translate-x-[-254px] bg-primary-950 p-6 pb-1 w-[150%]">
+             <h3 className="text-accent-800 font-black text-7xl mb-5 translate-x-[-254px] bg-primary-100 p-6 pb-1 w-[150%]">
                Cabin {cabin.name}
              </h3>
      
-             <p className="text-lg text-primary-300 mb-10">
+             <p className="text-lg text-primary-700 mb-10">
                <TextExpander>{cabin.description}</TextExpander>
              </p>
      

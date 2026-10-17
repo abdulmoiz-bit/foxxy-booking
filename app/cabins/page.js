@@ -38,7 +38,7 @@ export default async function Page({ searchParams }) {
       <h1 className="text-4xl mb-5 text-accent-400 font-medium">
         Our Luxury Cabins
       </h1>
-      <p className="text-primary-200 text-lg mb-10">
+      <p className="text-primary-700 text-lg mb-10">
         Cozy yet luxurious cabins, located right in the heart of the Italian
         Dolomites. Imagine waking up to beautiful mountain views, spending your
         days exploring the dark forests around, or just relaxing in your private
@@ -57,25 +57,25 @@ export default async function Page({ searchParams }) {
         */}
         <div className="grid sm:grid-cols-1 md:grid-cols-2 gap-8 lg:gap-12 xl:gap-14">
           {displayedCabins.map((cabin) => (
-            <div className="flex border-primary-800 border">
+            <div className="flex border-primary-300 border">
               <div className="flex-1 relative">
                 <Image
                   src={cabin.image}
                   fill
                   alt={`Cabin ${cabin.name}`}
-                  className="object-cover border-r border-primary-800"
+                  className="object-cover border-r border-primary-300"
                 />
               </div>
 
               <div className="flex-grow">
-                <div className="pt-5 pb-4 px-7 bg-primary-950">
-                  <h3 className="text-accent-500 font-semibold text-2xl mb-3">
+                <div className="pt-5 pb-4 px-7 bg-primary-100">
+                  <h3 className="text-accent-700 font-semibold text-2xl mb-3">
                     Cabin {cabin.name}
                   </h3>
 
                   <div className="flex gap-3 items-center mb-2">
                     <UsersIcon className="h-5 w-5 text-primary-600" />
-                    <p className="text-lg text-primary-200">
+                    <p className="text-lg text-primary-700">
                       For up to{" "}
                       <span className="font-bold">{cabin.maxCapacity}</span>{" "}
                       guests
@@ -97,14 +97,14 @@ export default async function Page({ searchParams }) {
                         ${cabin.regularPrice}
                       </span>
                     )}
-                    <span className="text-primary-200">/ night</span>
+                    <span className="text-primary-700">/ night</span>
                   </p>
                 </div>
 
-                <div className="bg-primary-950 border-t border-t-primary-800 text-right">
+                <div className="bg-primary-100 border-t border-t-primary-300 text-right">
                   <Link
                     href={`/cabins/${cabin.id}`}
-                    className="border-l border-primary-800 py-4 px-6 inline-block hover:bg-accent-600 transition-all hover:text-primary-900"
+                    className="border-l border-primary-300 rounded-xl py-4 px-6 inline-block hover:bg-accent-600 transition-all hover:text-primary-900"
                   >
                     Details & reservation &rarr;
                   </Link>

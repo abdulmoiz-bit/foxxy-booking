@@ -1,9 +1,9 @@
 //import Logo from "@/app/_components/ui/Logo";
 //import Navigation from "@/app/_components/Navigation";
 
-import { Josefin_Sans } from "next/font/google";
+import { DM_Sans } from "next/font/google";
 
-const josefin = Josefin_Sans({
+const dmSans = DM_Sans({
   subsets: ["latin"],
   display: "swap",
 });
@@ -25,7 +25,7 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body
-        className={`${josefin.className} antialiased bg-primary-950 text-primary-100 min-h-screen flex flex-col relative`}
+        className={`${dmSans.className} antialiased bg-primary-50 text-primary-800 min-h-screen flex flex-col relative`}
       >
         <Header />
 

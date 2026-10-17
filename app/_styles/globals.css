@@ -3,6 +3,14 @@
 @tailwind utilities;
 
 @layer components {
+  button,
+  select,
+  input[type="button"],
+  input[type="submit"],
+  a[class*="bg-accent-"] {
+    border-radius: 0.75rem;
+  }
+
   .spinner {
     margin: 3.2rem auto 1.6rem;
     width: 60px;

@@ -1,11 +1,16 @@
 import Navigation from '@/app/_components/Navigation';
-import Logo from '@/app/_components/ui/Logo';
+import Link from 'next/link';
 
 function Header() {
   return (
-    <header className='border-b border-primary-900 px-8 py-5'>
+    <header className='border-b border-primary-200 px-8 py-5'>
       <div className='flex justify-between items-center max-w-7xl mx-auto'>
-        <Logo />
+        <Link
+          href="/"
+          className="text-2xl font-bold tracking-tight text-primary-800 transition-colors hover:text-accent-700"
+        >
+          Foxxy
+        </Link>
         <Navigation />
       </div>
     </header>
