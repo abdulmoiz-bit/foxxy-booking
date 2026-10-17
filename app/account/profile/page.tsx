@@ -1,0 +1,39 @@
+import SelectCountry from "@/app/_components/SelectCountry";
+import UpdateProfileForm from "@/app/_components/UpdateProfileForm";
+import { auth } from "@/app/_services/auth";
+import { getGuest } from "@/app/_services/data-service";
+import { redirect } from "next/navigation";
+
+export const metadata = {
+  title: "Update profile",
+};
+
+export default async function Page() {
+  const session = await auth();
+  if (!session?.user.email) redirect("/login");
+
+  const guest = await getGuest(session.user.email);
+  if (!guest) redirect("/account");
+
+  return (
+    <div>
+      <h2 className="font-semibold text-2xl text-accent-400 mb-4">
+        Update your guest profile
+      </h2>
+
+      <p className="text-lg mb-8 text-primary-700">
+        Providing the following information will make your check-in process
+        faster and smoother. See you soon!
+      </p>
+
+      <UpdateProfileForm guest={guest}>
+        <SelectCountry
+          name="nationality"
+          id="nationality"
+          className="px-5 py-3 bg-primary-50 text-primary-800 w-full shadow-sm"
+          defaultCountry={guest.nationality}
+        />
+      </UpdateProfileForm>
+    </div>
+  );
+}
